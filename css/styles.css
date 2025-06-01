@@ -4722,3 +4722,18 @@ td:last-child {
   font-family: var(--font-2);
   font-weight: 400;
 }
+
+.screenshot-wrapper {
+  max-width: 65vw;
+  margin: 3rem auto;
+  text-align: center;
+}
+
+.screenshot-img {
+  width: 100%;
+  height: auto;
+  margin: 2rem 0;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}

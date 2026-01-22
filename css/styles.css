@@ -103,7 +103,7 @@
    * color-2(#343D35)
    * color-3(#FEF5E4)
    */
-  --color-1: hsla(35, 87%, 49%, 1);
+  --color-1: #00bf63;
   --color-2: hsla(127, 8%, 22%, 1);
   --color-3: hsla(39, 93%, 95%, 1);
 
@@ -3642,8 +3642,8 @@ td:last-child {
   z-index: 2;
   width: max(440px, 10vw);
   margin: 0;
-  -o-object-fit: cover;
-  object-fit: cover;
+  -o-object-fit: contain;
+  object-fit: contain;
   aspect-ratio: 2/2.5;
   vertical-align: bottom;
   box-shadow: 0 60px 40px -40px rgba(0, 0, 0, 0.2);

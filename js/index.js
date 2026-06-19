@@ -8,16 +8,43 @@
   });
 
   // Form
-  document.getElementById('apply-form').addEventListener('submit', (e) => {
+  document.getElementById('apply-form').addEventListener('submit', async (e) => {
     e.preventDefault();
-    document.getElementById('form-success').classList.remove('hidden');
-    e.target.querySelectorAll('input, textarea, button[type=submit]').forEach(el => el.disabled = true);
-    setTimeout(() => {
-      document.getElementById('application-modal').classList.add('hidden');
-      document.getElementById('form-success').classList.add('hidden');
-      e.target.querySelectorAll('input, textarea, button[type=submit]').forEach(el => { el.disabled = false; el.value = ''; });
-      document.getElementById('apply-message').value = '';
-    }, 2500);
+  
+    const form = e.target;
+    const formData = new FormData(form);
+  
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+  
+      const data = await response.json();
+  
+      if (data.success) {
+        document.getElementById('form-success').classList.remove('hidden');
+  
+        form.querySelectorAll('input, textarea, button[type=submit]')
+          .forEach(el => el.disabled = true);
+  
+        setTimeout(() => {
+          document.getElementById('application-modal').classList.add('hidden');
+          document.getElementById('form-success').classList.add('hidden');
+  
+          form.querySelectorAll('input, textarea, button[type=submit]')
+            .forEach(el => { el.disabled = false; el.value = ''; });
+  
+          document.getElementById('apply-message').value = '';
+        }, 2500);
+      } else {
+        alert("Form error: " + data.message);
+      }
+  
+    } catch (err) {
+      console.error(err);
+      alert("Something went wrong sending the form.");
+    }
   });
 
   // Scroll reveal

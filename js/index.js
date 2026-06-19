@@ -7,7 +7,7 @@
     a.addEventListener('click', () => document.getElementById('mobile-menu').classList.add('hidden'));
   });
 
-  // Form
+  // Form submission
   document.getElementById('apply-form').addEventListener('submit', async (e) => {
     e.preventDefault();
   

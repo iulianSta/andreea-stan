@@ -148,4 +148,5 @@ html { scroll-behavior: smooth; }
 #cookie-banner.show {
   transform: translateY(-50%, 0);
   opacity: 1;
+  pointer-events: auto;
 }

@@ -139,12 +139,12 @@ html { scroll-behavior: smooth; }
 /* Cookie Banner */
 
 #cookie-banner {
-  transform: translateY(120%);
+  transform: translateY(-50%, 120%);
   opacity: 0;
-  transition: all 0.5s ease;
+  transition: all 0.5s ease, opacity 0.5s ease;
 }
 
 #cookie-banner.show {
-  transform: translateY(0);
+  transform: translateY(-50%, 0);
   opacity: 1;
 }
